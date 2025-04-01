@@ -1,0 +1,6 @@
+@Light_Shp.API_HostAddress = http://localhost:5252
+
+GET {{Light_Shp.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

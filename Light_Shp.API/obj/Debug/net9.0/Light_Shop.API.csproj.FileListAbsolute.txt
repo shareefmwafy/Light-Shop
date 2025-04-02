@@ -167,3 +167,5 @@ D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\runtimes\win\lib\net6.0\Sy
 D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Projects\Light_Shop\Light_Shp.API\obj\Debug\net9.0\Light_Shop.API.sourcelink.json
+D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\Mapster.dll
+D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\Mapster.Core.dll

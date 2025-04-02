@@ -18,8 +18,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "category",
-        "Type": "Light_Shop.API.Models.Category",
+        "Name": "categoryRequest",
+        "Type": "Light_Shop.API.DTOs.Requests.CategoryRequest",
         "IsRequired": true
       }
     ],
@@ -55,8 +55,8 @@
         "IsRequired": true
       },
       {
-        "Name": "category",
-        "Type": "Light_Shop.API.Models.Category",
+        "Name": "categoryRequest",
+        "Type": "Light_Shop.API.DTOs.Requests.CategoryRequest",
         "IsRequired": true
       }
     ],

@@ -1,6 +1,7 @@
 
 using Light_Shop.API.Data;
-using Light_Shop.API.Services;
+using Light_Shop.API.Services.CategoryServices;
+using Light_Shop.API.Services.ProductServices;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -22,6 +23,7 @@ namespace Light_Shp.API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
             
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+            builder.Services.AddScoped<IProductService, ProductService>();
 
             var app = builder.Build();
 

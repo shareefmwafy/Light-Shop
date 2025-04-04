@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Light_Shop.API.props" />
+</Project>

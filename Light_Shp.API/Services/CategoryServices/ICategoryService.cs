@@ -1,6 +1,6 @@
 ﻿using Light_Shop.API.Models;
 using System.Linq.Expressions;
-namespace Light_Shop.API.Services
+namespace Light_Shop.API.Services.CategoryServices
 {
     public interface ICategoryService
     {

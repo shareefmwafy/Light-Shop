@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using Light_Shop.API.Data;
 using Microsoft.EntityFrameworkCore;
-namespace Light_Shop.API.Services
+namespace Light_Shop.API.Services.CategoryServices
 {
     public class CategoryService : ICategoryService
     {

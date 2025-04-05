@@ -14,5 +14,6 @@ namespace Light_Shop.API.DTOs.Response
         public double Rate { get; set; }
         public bool Status { get; set; }
         public int CategoryId { get; set; }
+        public int BrandId { get; set; }
     }
 }

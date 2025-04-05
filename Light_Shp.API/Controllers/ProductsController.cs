@@ -2,8 +2,7 @@
 using Light_Shop.API.DTOs.Requests;
 using Light_Shop.API.DTOs.Response;
 using Light_Shop.API.Models;
-using Light_Shop.API.Services.CategoryServices;
-using Light_Shop.API.Services.ProductServices;
+using Light_Shop.API.Services.Interfaces;
 using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

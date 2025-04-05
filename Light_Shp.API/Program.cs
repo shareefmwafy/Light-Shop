@@ -1,11 +1,10 @@
-
 using Light_Shop.API.Data;
-using Light_Shop.API.Services.CategoryServices;
-using Light_Shop.API.Services.ProductServices;
+using Light_Shop.API.Services.Implementations;
+using Light_Shop.API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
-namespace Light_Shp.API
+namespace Light_Shop.API
 {
     public class Program
     {
@@ -21,13 +20,14 @@ namespace Light_Shp.API
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
-            
+
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IProductService, ProductService>();
+            builder.Services.AddScoped<IBrandService, BrandService>();
 
             var app = builder.Build();
 
-            
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

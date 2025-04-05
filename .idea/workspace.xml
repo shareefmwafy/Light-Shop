@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2226e559-e232-4d9f-a4f0-db0b61c43aaa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Controllers/CategoriesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/Controllers/CategoriesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Controllers/ProductsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/Controllers/ProductsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/DTOs/Requests/ProductRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/DTOs/Requests/ProductRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/DTOs/Response/ProductResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/DTOs/Response/ProductResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Light_Shop.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/Light_Shop.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Models/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/Models/Product.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Light_Shp.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Services/CategoryServices/CategoryService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Services/CategoryServices/ICategoryService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Services/ProductServices/IProductService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Light_Shp.API/Services/ProductServices/ProductService.cs" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2vFTOR9PgpoPq7sQdxWfyfeVjz4" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/Brand-Management&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2226e559-e232-4d9f-a4f0-db0b61c43aaa" name="Changes" comment="" />
+      <created>1743739792035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743739792035</updated>
+    </task>
+    <servers />
+  </component>
+</project>

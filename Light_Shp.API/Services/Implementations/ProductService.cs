@@ -13,9 +13,18 @@ namespace Light_Shop.API.Services.Implementations
         ApplicationDbContext _context = context;
 
 
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<Product> GetAll(string? query, int page, int limit)
         {
-            var products = _context.Products.ToList();
+            IQueryable<Product> products = _context.Products;
+            if(query != null)
+            {
+                products = products.Where(product=> product.Name.Contains(query) || product.Description.Contains(query));
+            }
+            if(limit <= 0 ) limit = 10;
+            if(page <= 0 ) page = 1;
+
+            products = products.Skip( (page-1) * limit ).Take(limit);
+
             return products;
         }
 
@@ -50,12 +59,16 @@ namespace Light_Shop.API.Services.Implementations
             return product;
         }
 
-        public bool Edit(int id, ProductRequest prodcutRequest)
+        public bool Edit(int id, ProductUpdateRequest prodcutRequest)
         {
             var productInDb = _context.Products.AsNoTracking().FirstOrDefault(p=>p.Id==id);
             if (productInDb == null) return false;
-            
-            if (prodcutRequest != null && prodcutRequest.MainImage.Length > 0)
+
+            var updatedProduct = prodcutRequest.Adapt<Product>();
+            var file = prodcutRequest.MainImage;
+
+
+            if (file != null && file.Length > 0)
             {
                 var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Images", productInDb.MainImage);
                 if (File.Exists(oldFilePath))
@@ -72,7 +85,7 @@ namespace Light_Shop.API.Services.Implementations
                 }
                 productInDb.MainImage = newFileName;
             }
-            var updatedProduct = prodcutRequest.Adapt<Product>();
+            
             updatedProduct.MainImage = productInDb.MainImage;
             updatedProduct.Id = id;
             context.Products.Update(updatedProduct);

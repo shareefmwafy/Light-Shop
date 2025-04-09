@@ -21,9 +21,9 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpGet("")]
-        public IActionResult GetAllProducts()
+        public IActionResult GetAllProducts([FromQuery] string? query, [FromQuery] int page, [FromQuery] int limit = 10)
         {
-            var products = productService.GetAll();
+            var products = productService.GetAll(query, page, limit);
             return Ok(products.Adapt<IEnumerable<ProductResponse>>());
         }
 
@@ -43,9 +43,9 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateProduct([FromRoute] int id, [FromForm] ProductRequest productRequest)
+        public IActionResult UpdateProduct([FromRoute] int id, [FromForm] ProductUpdateRequest productUpdateRequest)
         {
-            var productInDb = productService.Edit(id, productRequest);
+            var productInDb = productService.Edit(id, productUpdateRequest);
             if (!productInDb) return NotFound();
 
             return NoContent();

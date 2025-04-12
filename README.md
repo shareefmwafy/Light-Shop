@@ -17,7 +17,7 @@ Here is a class diagram for the domain models of the project:
 
 
 
-## 🔧 Getting Started
+## Getting Started
 
 ### Prerequisites
 - .NET SDK 9
@@ -25,7 +25,7 @@ Here is a class diagram for the domain models of the project:
 - SQL Server
 - Postman (optional) Or Any API Tester Platform
 
-### Installation Steps
+## Installation Steps
 
 Follow these steps to install the project on your local machine:
 
@@ -36,7 +36,7 @@ cd .\Light_Shp.API\
 dotnet restore
 dotnet ef database update
 ```
-### ▶️ Running the Project
+## Running the Project
 
 You can run the project directly from your IDE (e.g., Visual Studio, Rider, or Visual Studio Code) to automatically launch the Scalar UI in the browser, where you can test all the available APIs.
 

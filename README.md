@@ -1,7 +1,22 @@
 # Light Shop E-Commerce Platform (ASP.NET Core)
 
-## About the Project
-This is a complete e-commerce backend platform built using **ASP.NET Core Web API**. It supports user authentication, product management, cart system, order processing, and secure RESTful APIs.
+
+## Project Requirements  
+For a comprehensive understanding of the project scope, refer to the [**Project Requirements documentation**](./docs/ProjectRequirements.md).  
+It outlines all functional and non-functional requirements, detailed use cases.
+
+---
+
+## Domain Models  
+The domain models used in this project were derived from the project requirements to reflect the business logic accurately.  
+To view the detailed domain models, please refer to the [**Domain Models documentation**](./docs/DomainModels.md).  
+
+Here is a class diagram for the domain models of the project:
+
+![image](https://github.com/user-attachments/assets/749fad91-559c-41c6-aa0c-87f19ec2cda5)
+
+
+
 
 ## Features
 - User registration and login

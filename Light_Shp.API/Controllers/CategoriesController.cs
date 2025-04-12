@@ -10,7 +10,7 @@ namespace Light_Shop.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    
     public class CategoriesController(ICategoryService categoryService) : ControllerBase
     {
         private readonly ICategoryService _categoryService = categoryService;
@@ -31,6 +31,7 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpPost("")]
+        [Authorize]
         public IActionResult CreateCategory([FromBody] CategoryRequest categoryRequest)
         {
             var categoryInDb = _categoryService.Add(categoryRequest.Adapt<Category>());

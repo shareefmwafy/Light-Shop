@@ -1,6 +1,7 @@
 ﻿using Light_Shop.API.DTOs.Requests;
 using Light_Shop.API.Models;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -56,5 +57,26 @@ namespace Light_Shop.API.Controllers
             await signInManager.SignOutAsync();
             return NoContent();
         }
+
+        [Authorize]
+        [HttpPost("ChangePassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest changePasswordRequest)
+        {
+            var applicationUser = await userManager.GetUserAsync(User);
+            if (applicationUser != null)
+            {
+                var result = await userManager.ChangePasswordAsync(applicationUser, changePasswordRequest.OldPassword,
+                    changePasswordRequest.NewPassword);
+                if (result.Succeeded)
+                {
+                    return NoContent();
+                }
+
+                return BadRequest(result.Errors);
+            }
+            return BadRequest(new { message = "Invalid Data" });
+        }
+
+        
     }
 }

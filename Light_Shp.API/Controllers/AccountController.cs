@@ -4,6 +4,7 @@ using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Light_Shop.API.Controllers
 {
@@ -47,6 +48,13 @@ namespace Light_Shop.API.Controllers
                 }
             }
             return BadRequest(new {message = "Invalid Email or Password"});
+        }
+
+        [HttpGet("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return NoContent();
         }
     }
 }

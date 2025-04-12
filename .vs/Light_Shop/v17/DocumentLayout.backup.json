@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\Light_Shop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{75BCC80A-74C6-483B-AFA6-89672ED9F677}|Light_Shp.API\\Light_Shop.API.csproj|d:\\projects\\light_shop\\light_shp.api\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{75BCC80A-74C6-483B-AFA6-89672ED9F677}|Light_Shp.API\\Light_Shop.API.csproj|solutionrelative:light_shp.api\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\Light_Shop\\Light_Shp.API\\Migrations\\20250410154418_identity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Light_Shp.API\\Migrations\\20250410154418_identity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20250410154418_identity.cs",
+              "DocumentMoniker": "D:\\Projects\\Light_Shop\\Light_Shp.API\\Migrations\\20250410154418_identity.cs",
+              "RelativeDocumentMoniker": "Light_Shp.API\\Migrations\\20250410154418_identity.cs",
+              "ToolTip": "D:\\Projects\\Light_Shop\\Light_Shp.API\\Migrations\\20250410154418_identity.cs",
+              "RelativeToolTip": "Light_Shp.API\\Migrations\\20250410154418_identity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T15:44:18.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\Projects\\Light_Shop\\Light_Shp.API\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Light_Shp.API\\Models\\ApplicationUser.cs",
+              "ToolTip": "D:\\Projects\\Light_Shop\\Light_Shp.API\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Light_Shp.API\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAcwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T09:56:58.144Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

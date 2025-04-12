@@ -167,7 +167,6 @@ D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\Light_Shop.API.dll
 D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\Light_Shop.API.pdb
 D:\Projects\Light_Shop\Light_Shp.API\obj\Debug\net9.0\Light_Shop.API.genruntimeconfig.cache
 D:\Projects\Light_Shop\Light_Shp.API\obj\Debug\net9.0\ref\Light_Shop.API.dll
-D:\Projects\Light_Shop\Light_Shp.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Projects\Light_Shop\Light_Shp.API\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

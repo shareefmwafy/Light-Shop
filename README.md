@@ -17,34 +17,6 @@ Here is a class diagram for the domain models of the project:
 
 
 
-
-## Features
-- User registration and login
-- Products Management
-- Categories Management
-- Brands Collection
-- RESTful APIs
-
-
-## 🏗️ Project Architecture
-- ASP.NET Core Web API (Backend)
-- Entity Framework Core for ORM
-- SQL Server Database
-- AutoMapper for DTO mapping (Mapster 7.4.0)
-
-
-## 🛠️ Tech Stack
-- ASP.NET Core 9.0
-- Entity Framework Core (9.0.4)
-- Entity Framework Core Tools (9.0.3)
-- SQL Server
-- AutoMapper
-- JWT Authentication
-- Postman for API documentation
-- Scalar for API testing
-
-
-
 ## 🔧 Getting Started
 
 ### Prerequisites
@@ -54,9 +26,24 @@ Here is a class diagram for the domain models of the project:
 - Postman (optional) Or Any API Tester Platform
 
 ### Installation Steps
+
+Follow these steps to install the project on your local machine:
+
 ```bash
 git clone https://github.com/shareefmwafy/Light-Shop
 cd Light-Shop
+cd .\Light_Shp.API\
 dotnet restore
 dotnet ef database update
+```
+### ▶️ Running the Project
+
+You can run the project directly from your IDE (e.g., Visual Studio, Rider, or Visual Studio Code) to automatically launch the Scalar UI in the browser, where you can test all the available APIs.
+
+Alternatively, you can run the project using the CLI command:
+```bash
 dotnet run
+```
+
+
+

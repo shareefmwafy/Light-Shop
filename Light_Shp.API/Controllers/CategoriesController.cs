@@ -3,12 +3,14 @@ using Light_Shop.API.DTOs.Response;
 using Light_Shop.API.Models;
 using Light_Shop.API.Services.Interfaces;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Light_Shop.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class CategoriesController(ICategoryService categoryService) : ControllerBase
     {
         private readonly ICategoryService _categoryService = categoryService;
@@ -29,6 +31,7 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpPost("")]
+        [Authorize]
         public IActionResult CreateCategory([FromBody] CategoryRequest categoryRequest)
         {
             var categoryInDb = _categoryService.Add(categoryRequest.Adapt<Category>());

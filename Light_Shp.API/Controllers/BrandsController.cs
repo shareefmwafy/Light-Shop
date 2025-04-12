@@ -9,7 +9,7 @@ namespace Light_Shop.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BrandsController(IBrandService brandService) : Controller
+    public class BrandsController(IBrandService brandService) : ControllerBase
     {
         private readonly IBrandService _brandService = brandService;
 

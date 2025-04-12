@@ -12,9 +12,11 @@ namespace Light_Shop.API.Controllers
     public class AccountController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> userManager;
-        public AccountController(UserManager<ApplicationUser> userManager) 
+        private readonly SignInManager<ApplicationUser> signInManager;
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) 
         {
             this.userManager = userManager;
+            this.signInManager = signInManager;
         }
 
         [HttpPost("register")]
@@ -24,6 +26,7 @@ namespace Light_Shop.API.Controllers
             var result = await userManager.CreateAsync(applicationUser, registerRequest.Password);
             if (result.Succeeded)
             {
+                await signInManager.SignInAsync(applicationUser, false);
                 return NoContent();
             }
 
@@ -39,6 +42,7 @@ namespace Light_Shop.API.Controllers
                 bool result = await userManager.CheckPasswordAsync(applicationUser, loginRequest.Password);
                 if (result)
                 {
+                    await signInManager.SignInAsync(applicationUser, loginRequest.RememberMe);
                     return NoContent();
                 }
             }

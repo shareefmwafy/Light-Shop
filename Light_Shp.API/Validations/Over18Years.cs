@@ -6,8 +6,12 @@ namespace Light_Shop.API.Validations
     {
         public override bool IsValid(object? value)
         {
-            if (value is not DateTime date) return false;
-            return DateTime.Now.Year - date.Year >= 18;
+            if(value is DateTime date)
+            {
+                if (DateTime.Now.Year - date.Year > 18)
+                    return true;
+            }
+            return false;
         }
 
         public override string FormatErrorMessage(string name)

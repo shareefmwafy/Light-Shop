@@ -17,6 +17,6 @@ namespace Light_Shop.API.Models
         public string? LastName { get; set; }
         public ApplicationUserGender Gender { get; set; }
 
-        public DateTime DateOfBirth { get; set; }
+        public DateTime BirthOfDate { get; set; }
     }
 }

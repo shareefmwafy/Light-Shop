@@ -12,7 +12,7 @@ namespace Light_Shop.API.DTOs.Requests
         public string LastName { get; set; }
 
         [MinLength(6)]
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         public string Email { get; set; }
         public string Password { get; set; }
@@ -21,7 +21,7 @@ namespace Light_Shop.API.DTOs.Requests
         public ApplicationUserGender Gender { get; set; }
         
         [Over18Years]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime BirthOfDate { get; set; }
         
     }
 }

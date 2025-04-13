@@ -20,7 +20,8 @@ namespace Light_Shop.API.DTOs.Requests
         public string ConfirmPassword { get; set; }
         public ApplicationUserGender Gender { get; set; }
         
-        [Over18Years]
+
+        [OverYears(15)]
         public DateTime BirthOfDate { get; set; }
         
     }

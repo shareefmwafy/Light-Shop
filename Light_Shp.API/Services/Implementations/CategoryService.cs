@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using Light_Shop.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Light_Shop.API.Services.Interfaces;
+using System.Threading.Tasks;
 
 namespace Light_Shop.API.Services.Implementations
 {
@@ -13,10 +14,10 @@ namespace Light_Shop.API.Services.Implementations
         {
             this.context = context;
         }
-        public Category Add(Category category)
+        public async Task<Category> Add(Category category, CancellationToken cancellationToken = default)
         {
-            context.Categories.Add(category);
-            context.SaveChanges();
+            await context.Categories.AddAsync(category, cancellationToken);
+            await context.SaveChangesAsync();
             return category;
         }
 

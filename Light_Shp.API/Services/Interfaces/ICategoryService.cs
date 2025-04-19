@@ -7,8 +7,9 @@ namespace Light_Shop.API.Services.Interfaces
         // I use IEnumerable to use categories as multi types of collections
         IEnumerable<Category> GetAll();
         Category? Get(Expression <Func<Category,bool>> expression);
-        Category Add(Category category);
-        bool Edit(int id, Category category);
-        bool Remove(int id);
+        Task<Category> AddAsync(Category category, CancellationToken cancellationToken = default);
+        Task<bool> EditAsync(int id, Category category, CancellationToken cancellationToken = default);
+        Task<bool> UpdateStatusAsync(int id, Category category, CancellationToken cancellationToken);
+        Task<bool> RemoveAsync(int id, CancellationToken cancellationToken);
     }
 }

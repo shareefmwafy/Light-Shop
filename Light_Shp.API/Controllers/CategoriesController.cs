@@ -32,9 +32,9 @@ namespace Light_Shop.API.Controllers
 
         [HttpPost("")]
         [Authorize]
-        public IActionResult CreateCategory([FromBody] CategoryRequest categoryRequest)
+        public IActionResult CreateCategory([FromBody] CategoryRequest categoryRequest, CancellationToken cancellationToken)
         {
-            var categoryInDb = _categoryService.Add(categoryRequest.Adapt<Category>());
+            var categoryInDb = _categoryService.Add(categoryRequest.Adapt<Category>(), cancellationToken);
             return CreatedAtAction(nameof(GetCategoryById), new { categoryInDb.Id }, categoryInDb);
         }
 

@@ -7,6 +7,12 @@ It outlines all functional and non-functional requirements, detailed use cases.
 
 ---
 
+## Live Demo
+
+To try out the Light Shop API's without installing anything locally, visit: [Scalar UI](http://lightshop.runasp.net/scalar/v1) There you'll find all endpoints documented and ready for testing.
+
+---
+
 ## Domain Models  
 The domain models used in this project were derived from the project requirements to reflect the business logic accurately.  
 To view the detailed domain models, please refer to the [**Domain Models documentation**](./docs/DomainModels.md).  
@@ -14,6 +20,7 @@ To view the detailed domain models, please refer to the [**Domain Models documen
 Here is a class diagram for the domain models of the project:
 
 ![image](https://github.com/user-attachments/assets/749fad91-559c-41c6-aa0c-87f19ec2cda5)
+
 
 
 

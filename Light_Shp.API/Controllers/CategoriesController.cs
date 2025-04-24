@@ -5,6 +5,7 @@ using Light_Shop.API.Services.Interfaces;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Light_Shop.API.Controllers
 {
@@ -17,40 +18,39 @@ namespace Light_Shop.API.Controllers
 
 
         [HttpGet("")]
-        public IActionResult GetAllCategories()
+        public async Task<IActionResult> GetAllCategories()
         {
-            var categories = _categoryService.GetAll();
+            var categories = await _categoryService.GetAsync();
             return Ok(categories.Adapt<IEnumerable<CategoryResponse>>());
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetCategoryById([FromRoute] int id)
+        public async Task<IActionResult> GetCategoryById([FromRoute] int id)
         {
-            var category = _categoryService.Get(e => e.Id == id);
+            var category = await _categoryService.GetOneAsync(e => e.Id == id);
             return category == null ? NotFound() : Ok(category.Adapt<CategoryResponse>());
         }
 
         [HttpPost("")]
-        [Authorize]
-        public IActionResult CreateCategory([FromBody] CategoryRequest categoryRequest, CancellationToken cancellationToken)
+        public async Task<IActionResult> CreateCategory([FromBody] CategoryRequest categoryRequest, CancellationToken cancellationToken)
         {
-            var categoryInDb = _categoryService.Add(categoryRequest.Adapt<Category>(), cancellationToken);
+            var categoryInDb = await _categoryService.AddAsync(categoryRequest.Adapt<Category>(), cancellationToken);
             return CreatedAtAction(nameof(GetCategoryById), new { categoryInDb.Id }, categoryInDb);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateCategory([FromRoute] int id, [FromBody] CategoryRequest categoryRequest)
+        public async Task<IActionResult> UpdateCategory([FromRoute] int id, [FromBody] CategoryRequest categoryRequest)
         {
-            var categoryInDb = _categoryService.Edit(id, categoryRequest.Adapt<Category>());
+            var categoryInDb = await _categoryService.EditAsync(id, categoryRequest.Adapt<Category>());
             if (!categoryInDb) return NotFound();
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteCategoryById([FromRoute] int id)
+        public async Task<IActionResult> DeleteCategoryById([FromRoute] int id)
         {
-            var category = _categoryService.Remove(id);
-            if (!category) return NotFound();
+            var categoryInDb = await _categoryService.RemoveAsync(id);
+            if (!categoryInDb) return NotFound();
             return NoContent();
         }
 

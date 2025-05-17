@@ -19,6 +19,15 @@ namespace Light_Shop.API
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  policy =>
+                                  {
+                                      policy.AllowAnyOrigin();
+                                  });
+            });
 
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -47,11 +56,11 @@ namespace Light_Shop.API
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseAuthorization();
 
             app.MapControllers();
-
+            app.UseDeveloperExceptionPage();
             app.Run();
         }
     }

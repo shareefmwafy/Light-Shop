@@ -77,6 +77,6 @@ namespace Light_Shop.API.Controllers
             return BadRequest(new { message = "Invalid Data" });
         }
 
-        
+
     }
 }

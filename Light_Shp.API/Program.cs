@@ -44,6 +44,7 @@ namespace Light_Shop.API
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddScoped<IBrandService, BrandService>();
+            builder.Services.AddScoped<ICartService, CartService>();
 
             var app = builder.Build();
 

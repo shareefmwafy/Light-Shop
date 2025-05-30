@@ -19,7 +19,8 @@ To view the detailed domain models, please refer to the [**Domain Models documen
 
 Here is a class diagram for the domain models of the project:
 
-![image](https://github.com/user-attachments/assets/749fad91-559c-41c6-aa0c-87f19ec2cda5)
+![image](https://github.com/user-attachments/assets/c55a737c-2aa9-4e07-9161-79636759e2c7)
+
 
 
 

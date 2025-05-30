@@ -2,7 +2,9 @@ using Light_Shop.API.Data;
 using Light_Shop.API.Models;
 using Light_Shop.API.Services.Implementations;
 using Light_Shop.API.Services.Interfaces;
+using Light_Shop.API.Utility;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 
@@ -40,7 +42,7 @@ namespace Light_Shop.API
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
-
+            builder.Services.AddTransient<IEmailSender, EmailSender>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddScoped<IBrandService, BrandService>();

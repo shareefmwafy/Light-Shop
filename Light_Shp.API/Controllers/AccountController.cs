@@ -35,9 +35,10 @@ namespace Light_Shop.API.Controllers
 
             if (result.Succeeded)
             {
-                string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Emails", "welcomeMessage.html");
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Emails", "welcomeMessage.html");
+
                 string welcomeMessage = await System.IO.File.ReadAllTextAsync(filePath);
-                await emailSender.SendEmailAsync(applicationUser.Email, "Welcome {", welcomeMessage);
+                await emailSender.SendEmailAsync(applicationUser.Email, "Welcome "+applicationUser.FirstName, welcomeMessage);
                 await signInManager.SignInAsync(applicationUser, false);
                 return NoContent();
             }

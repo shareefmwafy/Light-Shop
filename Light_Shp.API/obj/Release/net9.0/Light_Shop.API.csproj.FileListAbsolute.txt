@@ -173,3 +173,4 @@ D:\Projects\Light_Shop\Light_Shp.API\obj\Release\net9.0\refint\Light_Shop.API.dl
 D:\Projects\Light_Shop\Light_Shp.API\obj\Release\net9.0\Light_Shop.API.pdb
 D:\Projects\Light_Shop\Light_Shp.API\obj\Release\net9.0\Light_Shop.API.genruntimeconfig.cache
 D:\Projects\Light_Shop\Light_Shp.API\obj\Release\net9.0\ref\Light_Shop.API.dll
+D:\Projects\Light_Shop\Light_Shp.API\bin\Release\net9.0\Light_Shop.API.staticwebassets.runtime.json

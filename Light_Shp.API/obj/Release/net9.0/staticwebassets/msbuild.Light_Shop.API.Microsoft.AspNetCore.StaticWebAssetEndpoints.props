@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/Light_Shop.API/Emails/welcomeMessage.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Emails\welcomeMessage.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-cSjiv1O1RH0PP8IdX\u002BbXKrNkaHogLsp9CVPVGbX75GE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1921"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022cSjiv1O1RH0PP8IdX\u002BbXKrNkaHogLsp9CVPVGbX75GE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 30 May 2025 16:34:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Light_Shop.API/Emails/welcomeMessage.pilug4wfcp.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Emails\welcomeMessage.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"pilug4wfcp"},{"Name":"integrity","Value":"sha256-cSjiv1O1RH0PP8IdX\u002BbXKrNkaHogLsp9CVPVGbX75GE="},{"Name":"label","Value":"_content/Light_Shop.API/Emails/welcomeMessage.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1921"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022cSjiv1O1RH0PP8IdX\u002BbXKrNkaHogLsp9CVPVGbX75GE=\u0022"},{"Name":"Last-Modified","Value":"Fri, 30 May 2025 16:34:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>

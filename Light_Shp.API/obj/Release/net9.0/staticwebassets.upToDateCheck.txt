@@ -1,1 +1,2 @@
 D:\Projects\Light_Shop\Light_Shp.API\wwwroot\Emails\welcomeMessage.html
+wwwroot\Emails\welcomeMessage.html

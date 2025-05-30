@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Projects\\Light_Shop\\Light_Shp.API\\wwwroot\\Emails\\welcomeMessage.html",
+      "PackagePath": "staticwebassets\\Emails\\welcomeMessage.html"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.Light_Shop.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.Light_Shop.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.build.Light_Shop.API.props",
+      "PackagePath": "build\\Light_Shop.API.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Light_Shop.API.props",
+      "PackagePath": "buildMultiTargeting\\Light_Shop.API.props"
+    },
+    {
+      "Id": "obj\\Release\\net9.0\\staticwebassets\\msbuild.buildTransitive.Light_Shop.API.props",
+      "PackagePath": "buildTransitive\\Light_Shop.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

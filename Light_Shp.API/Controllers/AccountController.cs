@@ -1,9 +1,10 @@
 ﻿using Light_Shop.API.DTOs.Requests;
 using Light_Shop.API.Models;
+using Light_Shop.API.Utility;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -15,10 +16,15 @@ namespace Light_Shop.API.Controllers
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager) 
+        private readonly IEmailSender emailSender;
+        public AccountController(UserManager<ApplicationUser> userManager, 
+            SignInManager<ApplicationUser> signInManager,
+            IEmailSender emailSender
+            ) 
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.emailSender = emailSender;
         }
 
         [HttpPost("register")]
@@ -26,8 +32,12 @@ namespace Light_Shop.API.Controllers
         {
             var applicationUser = registerRequest.Adapt<ApplicationUser>();
             var result = await userManager.CreateAsync(applicationUser, registerRequest.Password);
+
             if (result.Succeeded)
             {
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Emails", "welcomeMessage.html");
+                string welcomeMessage = await System.IO.File.ReadAllTextAsync(filePath);
+                await emailSender.SendEmailAsync(applicationUser.Email, "Welcome {", welcomeMessage);
                 await signInManager.SignInAsync(applicationUser, false);
                 return NoContent();
             }
@@ -77,6 +87,6 @@ namespace Light_Shop.API.Controllers
             return BadRequest(new { message = "Invalid Data" });
         }
 
-        
+
     }
 }

@@ -137,6 +137,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Light_Shop.API.Controllers.CartsController",
+    "Method": "AddToCart",
+    "RelativePath": "api/Carts/{productId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "count",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Light_Shop.API.Controllers.CategoriesController",
     "Method": "GetAllCategories",
     "RelativePath": "api/Categories",

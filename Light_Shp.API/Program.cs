@@ -50,6 +50,8 @@ namespace Light_Shop.API
             builder.Services.AddScoped<IBrandService, BrandService>();
             builder.Services.AddScoped<ICartService, CartService>();
             builder.Services.AddScoped<IDBInitializer, DBInitializer>();
+            builder.Services.AddScoped<IUsersService, UsersService>();
+
 
 
             var app = builder.Build();

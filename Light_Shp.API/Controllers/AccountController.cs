@@ -39,6 +39,9 @@ namespace Light_Shop.API.Controllers
 
                 string welcomeMessage = await System.IO.File.ReadAllTextAsync(filePath);
                 await emailSender.SendEmailAsync(applicationUser.Email, "Welcome "+applicationUser.FirstName, welcomeMessage);
+
+                await userManager.AddToRoleAsync(applicationUser, StaticData.Customer);
+                    
                 await signInManager.SignInAsync(applicationUser, false);
                 return NoContent();
             }

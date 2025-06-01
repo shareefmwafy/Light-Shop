@@ -3,7 +3,9 @@ using Light_Shop.API.DTOs.Requests;
 using Light_Shop.API.DTOs.Response;
 using Light_Shop.API.Models;
 using Light_Shop.API.Services.Interfaces;
+using Light_Shop.API.Utility;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +13,8 @@ namespace Light_Shop.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = $"{StaticData.SuperAdmin}, {StaticData.Admin}, {StaticData.Company}")]
+
     public class ProductsController : ControllerBase
     {
         IProductService productService;
@@ -21,6 +25,7 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpGet("")]
+        [AllowAnonymous]
         public IActionResult GetAllProducts([FromQuery] string? query, [FromQuery] int page, [FromQuery] int limit = 10)
         {
             var products = productService.GetAll(query, page, limit);
@@ -28,6 +33,7 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public IActionResult GetProductById([FromRoute] int id)
         {
             var product = productService.Get(e => e.Id == id);

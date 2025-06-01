@@ -63,14 +63,15 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpGet("logout")]
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
             return NoContent();
         }
 
-        [Authorize]
         [HttpPost("ChangePassword")]
+        [Authorize]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest changePasswordRequest)
         {
             var applicationUser = await userManager.GetUserAsync(User);

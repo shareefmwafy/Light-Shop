@@ -3,6 +3,7 @@ using Light_Shop.API.Models;
 using Light_Shop.API.Services.Implementations;
 using Light_Shop.API.Services.Interfaces;
 using Light_Shop.API.Utility;
+using Light_Shop.API.Utility.DBInitilaizer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,7 @@ namespace Light_Shop.API
             });
 
 
+
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.User.RequireUniqueEmail = false;
@@ -47,6 +49,8 @@ namespace Light_Shop.API
             builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddScoped<IBrandService, BrandService>();
             builder.Services.AddScoped<ICartService, CartService>();
+            builder.Services.AddScoped<IDBInitializer, DBInitializer>();
+
 
             var app = builder.Build();
 
@@ -61,9 +65,13 @@ namespace Light_Shop.API
             app.UseHttpsRedirection();
             app.UseCors(MyAllowSpecificOrigins);
             app.UseAuthorization();
-
             app.MapControllers();
             app.UseDeveloperExceptionPage();
+
+            var scope = app.Services.CreateScope();
+            var service = scope.ServiceProvider.GetService<IDBInitializer>();
+            service.InitializeAsync();
+
             app.Run();
         }
     }

@@ -75,7 +75,7 @@ namespace Light_Shop.API
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("tstNdVvKmZmOQlahHTbWaSSoBKfSTfds")),
                 };
             });
-
+            builder.Services.AddAuthorization();
 
             var app = builder.Build();
 

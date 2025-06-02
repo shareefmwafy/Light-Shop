@@ -36,7 +36,7 @@ namespace Light_Shop.API.Utility.DBInitilaizer
             }
 
 
-            if (roleManager.Roles.IsNullOrEmpty())
+            if (roleManager.Roles is not null)
             {
                 await roleManager.CreateAsync(new(StaticData.SuperAdmin));
                 await roleManager.CreateAsync(new(StaticData.Admin));

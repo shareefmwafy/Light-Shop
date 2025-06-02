@@ -446,5 +446,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Light_Shop.API.Controllers.UsersController",
+    "Method": "ChangeRole",
+    "RelativePath": "api/Users/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "newRole",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

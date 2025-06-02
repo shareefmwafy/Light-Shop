@@ -4,10 +4,13 @@ using Light_Shop.API.Services.Implementations;
 using Light_Shop.API.Services.Interfaces;
 using Light_Shop.API.Utility;
 using Light_Shop.API.Utility.DBInitilaizer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
+using System.Text;
 
 namespace Light_Shop.API
 {
@@ -22,6 +25,9 @@ namespace Light_Shop.API
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+
+
+
             var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
             builder.Services.AddCors(options =>
             {
@@ -54,6 +60,23 @@ namespace Light_Shop.API
 
 
 
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new()
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("tstNdVvKmZmOQlahHTbWaSSoBKfSTfds")),
+                };
+            });
+
+
             var app = builder.Build();
 
 
@@ -66,6 +89,7 @@ namespace Light_Shop.API
 
             app.UseHttpsRedirection();
             app.UseCors(MyAllowSpecificOrigins);
+            app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
             app.UseDeveloperExceptionPage();

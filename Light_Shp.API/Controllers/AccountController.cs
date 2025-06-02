@@ -3,9 +3,14 @@ using Light_Shop.API.Models;
 using Light_Shop.API.Utility;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Light_Shop.API.Controllers
@@ -56,10 +61,30 @@ namespace Light_Shop.API.Controllers
             if (applicationUser != null)
             {
                 bool result = await userManager.CheckPasswordAsync(applicationUser, loginRequest.Password);
+                List<Claim> claims = new();
+                claims.Add(new(ClaimTypes.Name,applicationUser.UserName));
+                var userRoles = await userManager.GetRolesAsync(applicationUser);
+                claims.Add(new("id",applicationUser.Id));
+                if(userRoles.Count > 0)
+                {
+                    foreach (var role in userRoles)
+                    {
+                        claims.Add(new(ClaimTypes.Role, role));
+                    }
+                }
+
                 if (result)
                 {
-                    await signInManager.SignInAsync(applicationUser, loginRequest.RememberMe);
-                    return NoContent();
+                    SymmetricSecurityKey symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("tstNdVvKmZmOQlahHTbWaSSoBKfSTfds"));
+                    SigningCredentials signingCredentials = new SigningCredentials(symmetricSecurityKey,SecurityAlgorithms.HmacSha256);
+                    var JwtToken = new JwtSecurityToken(
+                        expires: DateTime.Now.AddDays(1),
+                        claims: claims,
+                        signingCredentials: signingCredentials
+                        );
+
+                    string token = new JwtSecurityTokenHandler().WriteToken(JwtToken);
+                    return Ok(new { token });
                 }
             }
             return BadRequest(new {message = "Invalid Email or Password"});

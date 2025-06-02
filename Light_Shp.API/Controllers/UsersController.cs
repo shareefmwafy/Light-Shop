@@ -36,5 +36,14 @@ namespace Light_Shop.API.Controllers
             var user = await usersService.GetOneAsync(user => user.Id == id);
             return Ok(user.Adapt<UserResponse>());
         }
+
+
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> ChangeRole([FromRoute] string userId, [FromQuery] string newRole)
+        {
+            var result = await usersService.ChangeRole(userId, newRole);
+            return Ok(result);
+        }
+
     }
 }

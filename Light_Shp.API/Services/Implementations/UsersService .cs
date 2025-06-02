@@ -24,5 +24,27 @@ namespace Light_Shop.API.Services.Implementations
             this._context = context;
             this.userManager = userManager;
         }
+
+
+        public async Task<bool> ChangeRole(string userId, string roleName)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+            if (user is not null)
+            {
+                var oldRole = await userManager.GetRolesAsync(user);
+                await userManager.RemoveFromRolesAsync(user, oldRole);
+
+                var result = await userManager.AddToRoleAsync(user, roleName);
+
+                if (result.Succeeded)
+                {
+                    return true;
+                }
+                
+            }
+
+            return false;
+
+        }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Light_Shop.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4c9503a91d906109a2d5e5fca09921b447b8c39")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e306d32f45147443318898a8463aaa52b371567")]
 [assembly: System.Reflection.AssemblyProductAttribute("Light_Shop.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Light_Shop.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

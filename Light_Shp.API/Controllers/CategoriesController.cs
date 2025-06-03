@@ -2,6 +2,7 @@
 using Light_Shop.API.DTOs.Response;
 using Light_Shop.API.Models;
 using Light_Shop.API.Services.Interfaces;
+using Light_Shop.API.Utility;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ namespace Light_Shop.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+    [Authorize(Roles = $"{StaticData.SuperAdmin}")]
     public class CategoriesController(ICategoryService categoryService) : ControllerBase
     {
         private readonly ICategoryService _categoryService = categoryService;
@@ -32,6 +33,7 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpPost("")]
+        [Authorize(Roles = $"{StaticData.SuperAdmin}, {StaticData.Admin}, {StaticData.Company}")]
         public async Task<IActionResult> CreateCategory([FromBody] CategoryRequest categoryRequest, CancellationToken cancellationToken)
         {
             var categoryInDb = await _categoryService.AddAsync(categoryRequest.Adapt<Category>(), cancellationToken);
@@ -39,6 +41,8 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = $"{StaticData.SuperAdmin}, {StaticData.Admin}, {StaticData.Company}")]
+
         public async Task<IActionResult> UpdateCategory([FromRoute] int id, [FromBody] CategoryRequest categoryRequest)
         {
             var categoryInDb = await _categoryService.EditAsync(id, categoryRequest.Adapt<Category>());
@@ -47,6 +51,7 @@ namespace Light_Shop.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = $"{StaticData.SuperAdmin}, {StaticData.Admin}, {StaticData.Company}")]
         public async Task<IActionResult> DeleteCategoryById([FromRoute] int id)
         {
             var categoryInDb = await _categoryService.RemoveAsync(id);

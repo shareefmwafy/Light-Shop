@@ -488,5 +488,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Light_Shop.API.Controllers.UsersController",
+    "Method": "LockUnLock",
+    "RelativePath": "api/Users/LockUnlock/{userId}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

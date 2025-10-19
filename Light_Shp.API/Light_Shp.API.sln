@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Light_Shop.API", "Light_Shop.API.csproj", "{EEF1FFE0-0578-CC6B-323C-3D61D1A5596C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEF1FFE0-0578-CC6B-323C-3D61D1A5596C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF1FFE0-0578-CC6B-323C-3D61D1A5596C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF1FFE0-0578-CC6B-323C-3D61D1A5596C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF1FFE0-0578-CC6B-323C-3D61D1A5596C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {171984C9-326D-4B37-9997-CFFE8838F258}
+	EndGlobalSection
+EndGlobal

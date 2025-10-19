@@ -45,5 +45,17 @@ namespace Light_Shop.API.Controllers
             return Ok(result);
         }
 
+        [HttpPatch("LockUnlock/{userId}")]
+        public async Task<IActionResult> LockUnLock(string userId)
+        {
+            var result = await usersService.LockUnLock(userId);
+
+            if(result == true )
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
     }
 }

@@ -18,8 +18,8 @@ namespace Light_Shop.API.Services.Implementations
         public UsersService(
             ApplicationDbContext context,
             UserManager<ApplicationUser> userManager
-                           
-            ):base(context) 
+
+            ) : base(context)
         {
             this._context = context;
             this.userManager = userManager;
@@ -40,10 +40,35 @@ namespace Light_Shop.API.Services.Implementations
                 {
                     return true;
                 }
-                
+
             }
 
             return false;
+
+        }
+
+        public async Task<bool?> LockUnLock(string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+
+            if (user is null) return null;
+
+            var isLockedNow = user.LockoutEnabled && user.LockoutEnd > DateTime.Now;
+
+            if (isLockedNow)
+            {
+                // remove block from user
+                user.LockoutEnabled = false;
+                user.LockoutEnd = null;
+            }
+            else
+            {
+                user.LockoutEnabled = true;
+                user.LockoutEnd = DateTime.Now.AddMinutes(1);
+            }
+            await userManager.UpdateAsync(user);
+            return !isLockedNow;
+
 
         }
     }

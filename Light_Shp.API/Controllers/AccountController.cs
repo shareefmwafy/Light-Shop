@@ -40,18 +40,58 @@ namespace Light_Shop.API.Controllers
 
             if (result.Succeeded)
             {
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Emails", "welcomeMessage.html");
 
-                string welcomeMessage = await System.IO.File.ReadAllTextAsync(filePath);
-                await emailSender.SendEmailAsync(applicationUser.Email, "Welcome "+applicationUser.FirstName, welcomeMessage);
 
                 await userManager.AddToRoleAsync(applicationUser, StaticData.Customer);
-                    
-                await signInManager.SignInAsync(applicationUser, false);
+
+                var token = await userManager.GenerateEmailConfirmationTokenAsync(applicationUser);
+                var emailConfirmUrl = Url.Action( nameof(ConfirmEmail), "Account" ,new {token, userId = applicationUser.Id},
+                    protocol: Request.Scheme,
+                    host: Request.Host.Value
+                    );
+
+                await emailSender.SendEmailAsync(
+                    applicationUser.Email,
+                    "Confirm Email",
+                    $@"
+                        <html>
+                        <body>
+                            <h1>Hello, {applicationUser.UserName}</h1>
+                            <p>Welcome to <b>Light Shop</b> — please confirm your email:</p>
+                            <p>
+                                <a href='{emailConfirmUrl}' 
+                                   style='display:inline-block; padding:10px 15px; background-color:#6dc97e; color:white; text-decoration:none; border-radius:6px;'>
+                                    Confirm Email
+                                </a>
+                            </p>
+                        </body>
+                        </html>
+                    "
+                );
                 return NoContent();
             }
 
             return BadRequest(result.Errors);
+        }
+
+        [HttpGet("ConfirmEmail")]
+        public async Task<IActionResult> ConfirmEmail(string token, string userId)
+        {
+            var user = await userManager.FindByIdAsync(userId);
+
+            if (user is not null)
+            {
+                var result = await userManager.ConfirmEmailAsync(user, token);
+                if (result.Succeeded)
+                {
+                    return Ok(new { message = "Email confirmed" });
+                }
+                else
+                {
+                    return BadRequest(result.Errors);
+                }
+            }
+            return NotFound();
         }
 
         [HttpPost("login")]
@@ -60,7 +100,10 @@ namespace Light_Shop.API.Controllers
             var applicationUser = await userManager.FindByEmailAsync(loginRequest.Email);
             if (applicationUser != null)
             {
-                bool result = await userManager.CheckPasswordAsync(applicationUser, loginRequest.Password);
+                var result = await signInManager.PasswordSignInAsync(applicationUser, loginRequest.Password, loginRequest.RememberMe, false);
+                
+
+
                 List<Claim> claims = new();
                 claims.Add(new(ClaimTypes.Name,applicationUser.UserName));
                 var userRoles = await userManager.GetRolesAsync(applicationUser);
@@ -73,10 +116,10 @@ namespace Light_Shop.API.Controllers
                     }
                 }
 
-                if (result)
+                if (result.Succeeded)
                 {
                     SymmetricSecurityKey symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("tstNdVvKmZmOQlahHTbWaSSoBKfSTfds"));
-                    SigningCredentials signingCredentials = new SigningCredentials(symmetricSecurityKey,SecurityAlgorithms.HmacSha256);
+                    SigningCredentials signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
                     var JwtToken = new JwtSecurityToken(
                         expires: DateTime.Now.AddDays(1),
                         claims: claims,
@@ -86,8 +129,21 @@ namespace Light_Shop.API.Controllers
                     string token = new JwtSecurityTokenHandler().WriteToken(JwtToken);
                     return Ok(new { token });
                 }
+                else
+                {
+                    if (result.IsLockedOut)
+                    {
+                        return BadRequest(new { message = "Your Account is Locked, Please Try Again later" });
+                    }
+                    else if (result.IsNotAllowed) {
+                        {
+                            return BadRequest(new { message = "Email Not confirm Please Confirm Your Email" });
+                        }
+                     }
+                }
+                
             }
-            return BadRequest(new {message = "Invalid Email or Password"});
+            return BadRequest(new { message = "invalid email or password" });
         }
 
         [HttpGet("logout")]
